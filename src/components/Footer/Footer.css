@@ -1,0 +1,17 @@
+.footer-principal {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #6278F7;
+    padding: 75px 0;
+}
+
+.footer-principal .images {
+    display: flex;
+    gap: 35px;
+}
+
+.footer-principal span {
+    color: #FFF;
+    font-size: 20px;
+}

@@ -1,12 +1,18 @@
 .team {
-    background-color: #D9F7E9;
-    padding: 32px 0;
+    padding: 32px;
     text-align: center;
 }
 
 .team h3 {
     font-size: 32px;
-    border-bottom: 4px solid #57C278;
+    border-bottom: 4px solid;
     display: inline-block;
     padding-bottom: 8px;
+}
+
+.team .employees {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
 }

@@ -6,16 +6,6 @@ import './Form.css';
 
 const Form = (props) => {
 
-    const times = [
-        'Programação',
-        'Front End',
-        'Data Science',
-        'Devops',
-        'UX e Design',
-        'Mobile',
-        'Inovação e Gestão'
-    ];
-
     const [nome, setNome] = useState('');
     const [cargo, setCargo] = useState('');
     const [imagem, setImagem] = useState('');
@@ -29,6 +19,10 @@ const Form = (props) => {
             imagem,
             time
         });
+        setNome('');
+        setCargo('');
+        setImagem('');
+        setTime('');
     }
 
     return (
@@ -38,7 +32,7 @@ const Form = (props) => {
                 <TextField required={true} label="Nome" placeholder="Digite seu nome" value={nome} whenChanged={value => setNome(value)} />
                 <TextField required={true} label="Cargo" placeholder="Digite seu cargo" value={cargo} whenChanged={value => setCargo(value)} />
                 <TextField label="Imagem" placeholder="Digite o endereço da imagem" value={imagem} whenChanged={value => setImagem(value)} />
-                <DropdownList required={true} label="Time" itens={times} value={time} whenChanged={value => setTime(value)} />
+                <DropdownList required={true} label="Time" itens={props.teams} value={time} whenChanged={value => setTime(value)} />
                 <Button>
                     Criar card
                 </Button>
