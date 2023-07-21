@@ -1,8 +1,10 @@
+import { useState } from 'react';
+import Button from '../Button';
 import DropdownList from '../DropdownList';
 import TextField from '../TextField';
 import './Form.css';
 
-const Form = () => {
+const Form = (props) => {
 
     const times = [
         'Programação',
@@ -14,14 +16,32 @@ const Form = () => {
         'Inovação e Gestão'
     ];
 
+    const [nome, setNome] = useState('');
+    const [cargo, setCargo] = useState('');
+    const [imagem, setImagem] = useState('');
+    const [time, setTime] = useState('');
+
+    const onSave = (e) => {
+        e.preventDefault();
+        props.toTheRegisteredEmployee({
+            nome,
+            cargo,
+            imagem,
+            time
+        });
+    }
+
     return (
         <section className="formulario">
-            <form>
+            <form onSubmit={onSave}>
                 <h2>Preencha os dados para criar o card do colaborador</h2>
-                <TextField label="Nome" placeholder="Digite seu nome" />
-                <TextField label="Cargo" placeholder="Digite seu cargo" />
-                <TextField label="Imagem" placeholder="Digite o endereço da imagem" />
-                <DropdownList label="Time" itens={times}/>
+                <TextField required={true} label="Nome" placeholder="Digite seu nome" value={nome} whenChanged={value => setNome(value)} />
+                <TextField required={true} label="Cargo" placeholder="Digite seu cargo" value={cargo} whenChanged={value => setCargo(value)} />
+                <TextField label="Imagem" placeholder="Digite o endereço da imagem" value={imagem} whenChanged={value => setImagem(value)} />
+                <DropdownList required={true} label="Time" itens={times} value={time} whenChanged={value => setTime(value)} />
+                <Button>
+                    Criar card
+                </Button>
             </form>
         </section>
     );
